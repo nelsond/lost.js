@@ -12,3 +12,6 @@ browserstack.json
 
 # nvm
 .nvmrc
+
+# npm
+node_modules/
