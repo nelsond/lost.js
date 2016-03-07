@@ -117,7 +117,7 @@ There is no polyfill for browser without localStorage. Please make sure you manu
 ```javascript
 var localStorageSupport = false;
 try {
-	localStorage.setItem("your-test-key-name","test");
+  localStorage.setItem("your-test-key-name","test");
   localStorage.removeItem("your-test-key");
   localStorageSupport = true;
 } catch(e) {
