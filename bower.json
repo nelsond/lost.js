@@ -1,8 +1,8 @@
 {
-  "name": "Lost",
+  "name": "lost",
   "version": "0.0.1",
   "authors": [
-    "Nelson Darkwah Oppong <ndo@felixnelson.de>"
+    "Nelson Darkwah Oppong <n@darkwahoppong.com>"
   ],
   "description": "Simple localStorage wrapper with namespace and encoding/decoding features",
   "main": "lib/lost.js",
