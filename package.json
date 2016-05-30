@@ -1,5 +1,5 @@
 {
-  "name": "Lost",
+  "name": "lost.js",
   "version": "0.0.1",
   "description": "Simple localStorage wrapper with namespace and encoding/decoding features",
   "directories": {
