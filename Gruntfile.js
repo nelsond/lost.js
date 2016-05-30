@@ -4,28 +4,6 @@ module.exports = function(grunt) {
   var customLaunchers = {},
       execSync = require('child_process').execSync;
 
-  if (grunt.cli.tasks.length == 1 && grunt.cli.tasks[0] == 'karma:browserstack') {
-    customLaunchers = {
-      bs_Chrome_39: {
-        base: 'BrowserStack',
-        browser: 'chrome',
-        browser_version: '39',
-        os: 'Windows',
-        os_version: '7'
-      }
-    };
-
-    if  (!process.env.BROWSER_STACK_USERNAME || !process.env.BROWSER_STACK_ACCESS_KEY) {
-      if (!require('fs').existsSync('browserstack.json')) {
-        console.log('Please create a browserstack.json with your credentials.');
-        process.exit(1);
-      } else {
-        process.env.BROWSER_STACK_USERNAME = require('./browserstack').username;
-        process.env.BROWSER_STACK_ACCESS_KEY = require('./browserstack').accessKey;
-      }
-    }
-  }
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -84,25 +62,12 @@ module.exports = function(grunt) {
         plugins: [
           'karma-jasmine',
           'karma-phantomjs-launcher',
-          'karma-coverage',
-          'karma-browserstack-launcher'
+          'karma-coverage'
         ],
         preprocessors: {
           'lib/lost.js': ['coverage']
         },
         colors: true
-      },
-
-      browserstack: {
-        browserStack: {
-          retryLimit: 2,
-          project: 'Lost.js tests',
-          build: execSync('git rev-parse HEAD', { encoding: 'utf-8' })
-        },
-        singleRun: true,
-        customLaunchers: customLaunchers,
-        browsers: Object.keys(customLaunchers),
-        reporters: ['dots']
       },
 
       local: {
@@ -115,7 +80,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['clean', 'copy', 'uglify']);
-
-  grunt.registerTask('test', ['clean', 'copy', 'karma:local']);
-  grunt.registerTask('test:continuous', ['clean', 'copy', 'karma:browserstack']);
+  grunt.registerTask('test', ['clean', 'copy', 'karma']);
 };
