@@ -7,7 +7,7 @@ Lost is a simple `localStorage` wrapper (minified: 2.5 kB, gzip:  1.6 kB) with n
 You can install this package using bower:
 
 ```shell
-$ bower install lost
+$ bower install lost.js
 ```
 
 In case you prefer not to use bower, you can download a [release](http:///github.com/nelsond/lost.js/releases).
