@@ -1,4 +1,4 @@
-# Lost.js
+# Lost.js [![Build Status](https://travis-ci.org/nelsond/lost.js.svg?branch=master)](https://travis-ci.org/nelsond/lost.js)
 
 Lost is a simple `localStorage` wrapper (minified: 2.5 kB, gzip:  1.6 kB) with namespace and encoding/decoding features.
 
